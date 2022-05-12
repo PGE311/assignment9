@@ -18,7 +18,7 @@ import nbconvert
 import os
 
 import skimage
-import skimage.measure
+import skimage.metrics
 import skimage.transform
 import cv2
 import warnings
@@ -86,7 +86,7 @@ class TestSolution(unittest.TestCase):
                                                           (gold_image.shape[0], gold_image.shape[1]), 
                                                           mode='constant')
 
-            ssim = skimage.measure.compare_ssim(skimage.img_as_float(gold_image), test_image_resized, multichannel=True)
+            ssim = skimage.metrics.compare_ssim(skimage.img_as_float(gold_image), test_image_resized, multichannel=True)
             assert ssim >= 0.75
         
 if __name__ == '__main__':
