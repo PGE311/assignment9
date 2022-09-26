@@ -87,7 +87,7 @@ class TestSolution(unittest.TestCase):
                                                           mode='constant')
 
             ssim = skimage.metrics.structural_similarity(skimage.img_as_float(gold_image), test_image_resized, multichannel=True)
- watx           assert ssim >= 0.75
+            assert ssim >= 0.75
 
 if __name__ == '__main__':
     unittest.main()
