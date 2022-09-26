@@ -54,7 +54,7 @@ class TestSolution(unittest.TestCase):
                                              0.00073352, 0.0035369, 0.00123457, 
                                              0.00194181, 0.00199742, 0.0022314, 
                                              0.00205417]), atol=0.0001)
-        
+
     def test_transform_private(self):
 
         kc = KozenyCarmen('poro_perm.csv')
@@ -64,14 +64,14 @@ class TestSolution(unittest.TestCase):
                                    np.array([0.00328828, 0.00183395, 0.00290263, 0.00241945,
                                              0.00211207, 0.00229286, 0.00144518, 0.00173048, 
                                              0.00217115]), atol=0.0001)
-        
-        
+
+
     def test_plot(self):
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
 
             p = KozenyCarmen('poro_perm.csv')
-            
+
             fig, ax = plt.subplots(figsize=(8, 6))
             p.plot(ax=ax)
             ax.set_xlabel(r'$\frac{\phi^3}{(1 - \phi)^2}$')
@@ -87,8 +87,8 @@ class TestSolution(unittest.TestCase):
                                                           mode='constant')
 
             ssim = skimage.metrics.structural_similarity(skimage.img_as_float(gold_image), test_image_resized, multichannel=True)
-            assert ssim >= 0.75
-        
+ watx           assert ssim >= 0.75
+
 if __name__ == '__main__':
     unittest.main()
 
