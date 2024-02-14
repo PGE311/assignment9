@@ -4,7 +4,10 @@ FROM mcr.microsoft.com/devcontainers/miniconda:0-3
 # copy "noop.txt" so the COPY instruction does not fail if no environment.yml exists.
 COPY environment.yml* .devcontainer/noop.txt .devcontainer/conda_init.txt /tmp/conda-tmp/
 RUN apt-get update; \
-    apt-get -yq install vim
+    apt-get -yq install vim libgl1-mesa-glx && \
+    rm -rf /var/lib/apt/lists/*
+
+# Continue with your application setup
 RUN conda install mamba -c conda-forge -y; \
     mamba install jupyterlab jupyterlab-git -c conda-forge -y; \
     if [ -f "/tmp/conda-tmp/environment.yml" ]; then umask 0002 && mamba env update -n base -f /tmp/conda-tmp/environment.yml; fi \
