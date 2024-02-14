@@ -32,7 +32,7 @@ jobs:
           export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/deploy_key -o UserKnownHostsFile=$HOME/.ssh/known_hosts"
           git config user.name "GitHub Actions Bot";
           git config user.email "<>";
-          git remote set-url origin git@github.com:PGE383-HPC/$ASSIGNMENT.git;
+          git remote set-url origin git@github.com:PGE311/$ASSIGNMENT.git;
           git commit -am "Update README URLs";
           git branch -M master
           git push origin master -f
